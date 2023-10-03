@@ -1,0 +1,45 @@
+TERMINAL:
+docker images- list of images locally
+docker ps- lists containers
+docker pull nginx:1.25.2 -pull docker image from registry
+docker run nginx:1.25.2 -starts the container
+docker start {containerId} -restarts the specific container without creating a new one.
+
+docker run -d nginx:1.25.2 -starts the container detatched from terminal
+docker logs {containerId} -shows the logs from a detatched container that is running.
+docker stop {containerId} -stops a container that is detatched from the terminal.
+docker run -d -p 4000:80 nginx:1.25.2 -starts the container detatched and exposes the 		container to localhost:4000
+docker run --name {name}-d -p 3000:80 nginx:1.25.2  -Allows you to create a container with a 	desired name, which you can use the same as an id
+docker build -t node-app:1.0 . -builds an image from your project in current directory
+docker run -d -p 3000:3000 node-app:1.0 -start up personal application with the container and 	the application both runnng on port 3000.
+
+docker container run -d --name mysql -e MYSQL_RANDOM_ROOT_PASSWORD=true mysql -start mysql is t requires an environment variable to be specefied to run.
+docker container inspect mysql -it shows mysql data.
+docker container stats -moniter container performance
+docker container run -it -starts new container interactively
+docker container exec -it -run additional command in existing container.
+docker container run -it --name proxy nginx bash -run bash inside nginx
+
+docker image build -t nginx-with-html .
+-make an image in the current directory using
+the avialable docker file.
+
+NOTES:
+Docker Registries:
+	A storage and distribution system for Docker images. 
+	Docker hosts one of the biggest Docker Registry, called "Docker Hub".
+	
+Docker Image: a template which new docker containers are built resemblin
+
+Docker Container: a collection of resources necessary for running an application.
+
+Docker Repository: can be contained inside a registry which holds different images.
+
+
+Image Layers: 
+	Images are made of fil system changes and metadata
+	Each layer is uniquely identified and only stored once on a hosts
+	This saves storage space on host and transfertime on push/pull
+	A container is just a single read/write layer on top of an image
+	docker image history and inspect commands can teach us
+
